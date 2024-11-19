@@ -123,8 +123,8 @@ A coleção Alunos_aprovados rastreia os alunos que foram aprovados.
 	2. select * from leciona;
 	
 	3. SELECT ra, nome_aluno, materias_aprovadas
-		FROM alunos_aprovados
-		WHERE semestre = '2024-1' AND ano = 2024 ALLOW FILTERING;
+           FROM alunos_aprovados
+	   WHERE semestre = '2024-1' AND ano = 2024 ALLOW FILTERING;
 	
 	4. select nome_dept, chefe_nome from departamentos;
 	
@@ -221,45 +221,45 @@ A coleção Alunos_aprovados rastreia os alunos que foram aprovados.
 ```
 ### Comandos CQL para Inserts:
 ```cql
-    INSERT INTO alunos_aprovados (ra, nome_aluno, semestre, ano, materias_aprovadas)
-  	VALUES ('A0048', 'Dr. Josue Cunha', '2023-2', 2023, ['M1003', 'M1008', 'M1015']);
-  	INSERT INTO alunos_aprovados (ra, nome_aluno, semestre, ano, materias_aprovadas)
-  	VALUES ('A0007', 'Dr. Eduardo Gomes', '2024-2', 2024, ['M1006', 'M1009', 'M1010']);
+    	  INSERT INTO alunos_aprovados (ra, nome_aluno, semestre, ano, materias_aprovadas)
+  	  VALUES ('A0048', 'Dr. Josue Cunha', '2023-2', 2023, ['M1003', 'M1008', 'M1015']);
+  	  INSERT INTO alunos_aprovados (ra, nome_aluno, semestre, ano, materias_aprovadas)
+          VALUES ('A0007', 'Dr. Eduardo Gomes', '2024-2', 2024, ['M1006', 'M1009', 'M1010']);
 
-    INSERT INTO Orientador (aluno_ra, aluno_nome, prof_ra, prof_nome, grupo_id)
+          INSERT INTO Orientador (aluno_ra, aluno_nome, prof_ra, prof_nome, grupo_id)
 	  VALUES ('A0026', 'Vinicius Dias', 'RA013', 'Jade Viana', 'G001');
 	  INSERT INTO Orientador (aluno_ra, aluno_nome, prof_ra, prof_nome, grupo_id)
 	  VALUES ('A0032', 'Joaquim Abreu', 'RA009', 'Joana Moraes', 'G002');
 
-    INSERT INTO Leciona (RA_Prof, materia_id, Semestre, Ano, status, nome_prof, nome_materia)
+          INSERT INTO Leciona (RA_Prof, materia_id, Semestre, Ano, status, nome_prof, nome_materia)
 	  VALUES ('RA018', 'M1001', '2024-1', 2024, 'Ativo', 'Lara Sampaio', 'Banco de Dados');
 	  INSERT INTO Leciona (RA_Prof, materia_id, Semestre, Ano, status, nome_prof, nome_materia)
 	  VALUES ('RA009', 'M1001', '2024-1', 2024, 'Ativo', 'Joana Moraes', 'Banco de Dados');
 
-    INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C001', 'M1007', 'Ciencia da Computacao', 'Programacao I');
-    INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C001', 'M1008', 'Ciencia da Computacao', 'Programacao II');
+	  INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C001', 'M1007', 'Ciencia da Computacao', 'Programacao I');
+          INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C001', 'M1008', 'Ciencia da Computacao', 'Programacao II');
 	  INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C001', 'M1004', 'Ciencia da Computacao', 'Algebra Linear');
 	  INSERT INTO matriz_curricular (curso_id, materia_id, nome_curso, nome_materia) VALUES ('C002', 'M1013', 'Engenharia Mecanica', 'Resistencia dos Materiais');
 
-    INSERT INTO materias (materia_id, nome_materia, nome_dept, curso_id, nome_curso) VALUES ('M1003', 'Engenharia de Software', 'Computacao', 'C001', 'Ciencia da Computacao');
+    	  INSERT INTO materias (materia_id, nome_materia, nome_dept, curso_id, nome_curso) VALUES ('M1003', 'Engenharia de Software', 'Computacao', 'C001', 'Ciencia da Computacao');
 	  INSERT INTO materias (materia_id, nome_materia, nome_dept, curso_id, nome_curso) VALUES ('M1004', 'Algebra Linear', 'Matematica', 'C005', 'Matematica');
 	  INSERT INTO materias (materia_id, nome_materia, nome_dept, curso_id, nome_curso) VALUES ('M1005', 'Logistica', 'Administracao', 'C004', 'Administracao');
 
-    INSERT INTO departamentos (nome_dept, orcamento, predio, chefe_ra, chefe_nome, chefe_email) 
+          INSERT INTO departamentos (nome_dept, orcamento, predio, chefe_ra, chefe_nome, chefe_email) 
 	  VALUES ('Computacao', 50000, 'Predio K', 'RA003', 'Caue da Cunha', 'cda@fei.com');
 	  INSERT INTO departamentos (nome_dept, orcamento, predio, chefe_ra, chefe_nome, chefe_email) 
 	  VALUES ('Engenharia', 30000, 'Predio J', 'RA025', 'Jade Lima', 'jlima@fei.com');
 
-    INSERT INTO professores (ra, nome, email, salario, nome_dept) 
+          INSERT INTO professores (ra, nome, email, salario, nome_dept) 
 	  VALUES ('RA001', 'Nina Barbosa', 'nbarbosa@fei.com', 9611, 'Administracao');
 	  INSERT INTO professores (ra, nome, email, salario, nome_dept) 
 	  VALUES ('RA002', 'Sr. Yan Barbosa', 'syan@fei.com', 5937, 'Administracao');
 
-    INSERT INTO alunos (ra, nome, email, curso_id, nome_curso) VALUES ('A0001', 'Barbara Castro', 'bcastro@fei.com', 'C003', 'Engenharia de Producao');
+          INSERT INTO alunos (ra, nome, email, curso_id, nome_curso) VALUES ('A0001', 'Barbara Castro', 'bcastro@fei.com', 'C003', 'Engenharia de Producao');
 	  INSERT INTO alunos (ra, nome, email, curso_id, nome_curso) VALUES ('A0002', 'Dra. Luisa Oliveira', 'dluisa@fei.com', 'C006', 'Engenharia Eletrica');
 
     
- INSERT INTO cursando (ra, nome_aluno, materia_id, nome_materia, semestre, ano, nota, status) 
+          INSERT INTO cursando (ra, nome_aluno, materia_id, nome_materia, semestre, ano, nota, status) 
 	  VALUES ('A0052', 'Luna Nascimento', 'M1004', 'Algebra Linear', '2023-2', 2023, 8.0, 'Aprovado');
 	  INSERT INTO cursando (ra, nome_aluno, materia_id, nome_materia, semestre, ano, nota, status) 
 	  VALUES ('A0052', 'Luna Nascimento', 'M1014', 'Mecanica dos Fluidos', '2023-2', 2023, 8.0, 'Aprovado');

@@ -114,7 +114,7 @@ A coleção matriz_curricular define as disciplinas obrigatórias de cada curso.
 `README.md`: Documentação do projeto.
 
 ### Queries:
-
+```sql
 	1. select * from cursando;
 	
 	2. select * from leciona;
@@ -126,7 +126,7 @@ A coleção matriz_curricular define as disciplinas obrigatórias de cada curso.
 	4. select nome_dept, chefe_nome from departamentos;
 	
 	5. select * from orientadores;
-
+```
  ### Comandos CQL para Criação de tabelasl:
  ```cql
     CREATE TABLE alunos_aprovados (

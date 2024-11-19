@@ -55,13 +55,13 @@ O modelo segue a estrutura de Wide-Column Storage, que organiza os dados em tabe
 A coleção departamento armazena informações sobre os departamentos da instituição, como nome, orçamento, prédio alocado e detalhes do chefe do departamento.
 
 - Chave Primária: `nome_dept`
-- Colunas:  `orçamento, prédio, dados do chefe (RA, nome, e-mail, salário).`
+- Colunas:  `orçamento, prédio, dados do chefe (RA, nome, e-mail).`
 
 ### 2. Professor
 A coleção professor contém informações sobre os professores, incluindo seus dados pessoais e o departamento ao qual pertencem.
 
 - Chave Primária: `RA`
-- Colunas:  `CPF, nome, e-mail, salário, departamento.`
+- Colunas:  `nome, e-mail, salário, departamento.`
 
 ### 3. Curso
 A coleção curso armazena informações sobre os cursos oferecidos, associando-os aos departamentos responsáveis.
@@ -69,43 +69,48 @@ A coleção curso armazena informações sobre os cursos oferecidos, associando-
 - Chave Primária: `curso_id`
 - Colunas:  ` nome do curso, departamento.`
 
-### 4. Aluno
-A coleção aluno guarda dados pessoais dos estudantes, bem como a referência ao curso em que estão matriculados.
+### 4. Alunos
+A coleção alunos guarda dados pessoais dos estudantes, bem como a referência ao curso em que estão matriculados.
 
 - Chave Primária: `RA`
-- Colunas:  ` CPF, nome, e-mail, curso.`
+- Colunas:  `nome, e-mail, nome e ID do curso.`
 
-### 5. Materia
+### 5. Materias
 A coleção materia representa as disciplinas, vinculando-as aos departamentos e cursos relacionados.
 
 - Chave Primária: `materia_id`
-- Colunas:  `nome da matéria, departamento, curso.`
-
+- Colunas:  `nome da matéria, departamento, nome e ID do curso.`
 
 ### 6. Cursando
 A coleção cursando rastreia as disciplinas que os alunos estão cursando ou já cursaram, incluindo notas e status.
 
-- Chave Composta: `(RA, materia_id)`
-- Colunas:  `semestre, ano, nota, status.`  
+- Chave Composta: `(ra, semestre, ano, materia_id)`
+- Colunas:  `nome do aluno, nota, nome da matéria, semestre, ano, nota, status.`  
 
 ### 7. Leciona
 A coleção leciona rastreia as disciplinas ministradas por cada professor, incluindo o semestre e status da atividade.
 
-- Chave Composta: ` (RA_Prof, materia_id)`
-- Colunas:  `semestre, ano, status.`  
+- Chave Composta: `(ra_prof, semestre, ano, materia_id)`
+- Colunas:  `semestre, ano, status, nome do professor, nome da matéria.`  
 
 ### 8. Orientador
 A coleção orientador registra a relação entre professores orientadores e alunos que participam de grupos de TCC.
 
 - Chave Composta: `(grupo_id, aluno_ra)`
-- Colunas:  `RA (do professor orientador)`  
+- Colunas:  `RA (do professor orientador), nome do aluno e nome do professor.`  
 
 ### 9. Matriz Curricular
 A coleção matriz_curricular define as disciplinas obrigatórias de cada curso.
 
-- Chave Composta: ` (curso_id, materia_id)`
-- Colunas:  `nenhuma adicional (apenas associação).`  
+- Chave Composta: `(curso_id, materia_id)`
+- Colunas:  `nome do curso e nome da matéria.`  
 
+### 10. Alunos_aprovados
+A coleção Alunos_aprovados rastreia os alunos que foram aprovados.
+
+- Chave Composta: `RA`
+- Colunas:  `nome do aluno, semestre, ano e matérias aprovadas.`
+  
 ## Estrutura do Repositório
 `/queries/`: Scripts para criação de tabelas e consultas.
 

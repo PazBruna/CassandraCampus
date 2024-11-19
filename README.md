@@ -46,8 +46,6 @@ $ python --version
 ```sh
 $ python main.py
 ```
-❗ Se tudo tiver dado certo, um arquivo nomeado "insertsTraduzidosMongo" terá sido gerado, na mesma pasta, contendo os inserts traduzidos
-
 ## Arquitetura
 O modelo segue a estrutura de Wide-Column Storage, que organiza os dados em tabelas chaveadas com colunas agrupadas em famílias. Cada tabela é projetada para atender às principais necessidades de consulta.
 
